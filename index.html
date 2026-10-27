@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Eli 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Patrick+Hand&display=swap');
+
+body {
+  margin: 0;
+  background: linear-gradient(#fff5f8, #f8c9dc);
+  color: #693c50;
+  font-family: 'Patrick Hand', cursive;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.inicio {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.kitty {
+  width: min(360px, 85vw);
+  animation: flotar 3s infinite ease-in-out;
+}
+
+h1 {
+  font-family: 'Black Ops One', Impact, fantasy;
+  font-size: clamp(38px, 7vw, 62px);
+  color: #e45e91;
+  text-shadow: 3px 3px white, 5px 5px #a94170;
+  transform: rotate(-3deg);
+}
+
+@keyframes flotar {
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+button {
+  background: #df5b8c;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font: 22px 'Patrick Hand', cursive;
+  cursor: pointer;
+  box-shadow: 0 5px #a73e67;
+}
+
+button:hover {
+  transform: scale(1.06);
+}
+
+.carta {
+  display: none;
+  margin: 25px auto;
+  padding: 25px;
+  width: 85%;
+  max-width: 600px;
+  background: #fffdfb;
+  border: 3px dashed #e89bb7;
+  border-radius: 25px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px #bc65852b;
+  animation: aparecer 1s ease;
+}
+
+.carta.abierta {
+  display: block;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ojo {
+  width: min(340px, 100%);
+}
+
+.mensaje {
+  font-size: clamp(23px, 4vw, 30px);
+  line-height: 1.5;
+}
+
+.firma {
+  color: #d84e80;
+  font-size: 28px;
+}
+
+.corazon {
+  position: fixed;
+  bottom: -30px;
+  color: #df6696;
+  animation: subir 7s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes subir {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="corazones"></div>
+
+<section class="inicio" id="inicio">
+
+  <img class="kitty" src="IMG_2395.jpeg"
+       alt="Hello Kitty con un lirio rosa">
+
+  <div>
+    <h1>Un lirio entre<br>todas las rosas</h1>
+
+    <p style="font-size:23px">
+      Hay flores bonitas…<br>
+      y luego estás tú. 🌷
+    </p>
+
+    <button onclick="abrirCarta()">
+      Abrir mi cartita 💌
+    </button>
+
+    <p>Una sorpresita para ti, Eli ♡</p>
+  </div>
+
+</section>
+
+<section class="carta" id="carta">
+
+  <h2 style="color:#d84e80;font-size:32px">
+    Para mis ojitos bonitos ♡
+  </h2>
+
+  <!-- Dibujo de un ojo a lápiz -->
+  <svg class="ojo" viewBox="0 0 400 210"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <g fill="none" stroke="#65585a"
+       stroke-linecap="round" stroke-linejoin="round">
+
+      <path d="M30 105 Q200 -5 370 105
+               Q200 215 30 105"
+            stroke-width="3"/>
+
+      <path d="M40 100 Q200 25 360 100"
+            stroke-width="1.5"/>
+
+      <path d="M45 93 L25 70 M75 75 L65 52
+               M105 60 L100 39 M140 48 L142 28
+               M260 48 L265 28 M295 60 L305 40
+               M325 76 L342 54 M350 91 L370 73"
+            stroke-width="2.5"/>
+
+      <path d="M145 105 Q200 55 255 105
+               Q200 155 145 105"
+            fill="#a99b98" stroke-width="2"/>
+
+      <ellipse cx="200" cy="105" rx="23" ry="33"
+               fill="#514448" stroke-width="2"/>
+
+      <ellipse cx="193" cy="94" rx="7" ry="10"
+               fill="#fff" stroke="none"/>
+
+      <path d="M130 102 Q200 45 270 102"
+            stroke-width="3"/>
+
+      <path d="M70 145 Q200 180 330 145"
+            stroke-width="1.5"/>
+
+    </g>
+  </svg>
+
+  <p class="mensaje">
+    Tus ojitos me encantan demasiado<br>
+    De la manera más egoísta,<br>
+    <strong>quiero que me miren a mí.</strong>
+  </p>
+
+  <p class="firma">Tqm Eli 🫶🏻</p>
+
+  <p>Siempre recuerda lo especial que eres. 💗</p>
+
+  <button onclick="cerrarCarta()">
+    Volver al inicio 🌸
+  </button>
+
+</section>
+
+<script>
+function abrirCarta() {
+  document.getElementById("carta").classList.add("abierta");
+  document.getElementById("carta").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function cerrarCarta() {
+  document.getElementById("carta").classList.remove("abierta");
+  document.getElementById("inicio").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+// Corazones flotantes
+for (let i = 0; i < 15; i++) {
+  const corazon = document.createElement("span");
+  corazon.className = "corazon";
+  corazon.textContent = "♡";
+  corazon.style.left = Math.random() * 100 + "vw";
+  corazon.style.animationDelay = Math.random() * 7 + "s";
+  corazon.style.animationDuration = (5 + Math.random() * 5) + "s";
+  corazon.style.fontSize = (15 + Math.random() * 20) + "px";
+  document.getElementById("corazones").appendChild(corazon);
+}
+</script>
+
+</body>
+</html>
